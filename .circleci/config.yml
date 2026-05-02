@@ -7,6 +7,7 @@ jobs:
 
     steps:
       - checkout
+
       - setup_remote_docker
 
       - run:
@@ -28,7 +29,7 @@ jobs:
       - run:
           name: Login to Docker Hub
           command: |
-  echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
 
       - run:
           name: Push Frontend Image
