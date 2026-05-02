@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  test-build:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - setup_remote_docker
+
+      - run:
+          name: Test Docker Build
+          command: docker build -t test-image ./mern/frontend
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test-build
